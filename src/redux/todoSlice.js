@@ -24,14 +24,19 @@ const todoSlice = createSlice({
     },
 
     completeTodo: (state, action) => {
-      state.todos.map((todo) => {
-        if (todo.id === action.payload) {
-          todo.isCompleted = true;
+      return void state.todos.map((todo) => {
+        if (todo.id === action.payload.id) {
+          todo.isCompleted = action.payload.isCompleted;
         }
+        return todo;
       });
+    },
+
+    removeTodo: (state, action) => {
+      state.todos = state.todos.filter((todo) => todo.id !== action.payload);
     },
   },
 });
 
-export const { addTodo, completeTodo } = todoSlice.actions;
+export const { addTodo, completeTodo, removeTodo } = todoSlice.actions;
 export default todoSlice.reducer;

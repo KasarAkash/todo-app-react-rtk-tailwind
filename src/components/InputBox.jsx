@@ -8,15 +8,16 @@ export default function InputBox() {
   const dispatch = useDispatch();
 
   return (
-    <div className="w-full flex bg-white rounded-full shadow-xl items-center justify-between text-xl overflow-hidden pl-4 mt-8 dark:bg-VeryDarkBlue">
+    <div className="w-full flex bg-white rounded-full shadow-xl items-center justify-between text-xl overflow-hidden pl-4 mt-8 dark:bg-VeryDarkDesaturatedBlue">
       <input
         type="text"
         value={text}
+        placeholder="Create a new todo..."
         onChange={(e) => {
           e.preventDefault();
           setText(e.target.value);
         }}
-        className="outline-none w-full px-3 dark:bg-VeryDarkBlue dark:text-LightGrayishBlue"
+        className="outline-none w-full px-3 dark:bg-VeryDarkDesaturatedBlue dark:text-LightGrayishBlue"
       />
       <button
         onClick={(e) => {
