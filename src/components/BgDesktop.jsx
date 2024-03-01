@@ -8,7 +8,7 @@ export default function BgDesktop() {
   return (
     <img
       src={theme ? bgDark : bgLight}
-      className="w-full object-contain md:block hidden"
+      className="w-full  object-contain md:block hidden"
     />
   );
 }
