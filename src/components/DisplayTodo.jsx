@@ -1,6 +1,5 @@
 import { useSelector } from "react-redux";
 import TodoTile from "./TodoTile";
-import FilterBar from "./FilterBar";
 
 export default function DisplayTodo() {
   const todos = useSelector((state) => state.todo.todos);
