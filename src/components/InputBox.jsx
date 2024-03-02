@@ -22,8 +22,10 @@ export default function InputBox() {
       <button
         onClick={(e) => {
           e.preventDefault();
-          dispatch(addTodo(text));
-          dispatch(addActiveTodos());
+          if (text) {
+            dispatch(addTodo(text));
+            dispatch(addActiveTodos());
+          }
           setText("");
         }}
         className="rounded-full bg-green-500 p-3"
