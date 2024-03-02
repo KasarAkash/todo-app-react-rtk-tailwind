@@ -1,7 +1,7 @@
 import { useState } from "react";
 import check from "../assets/icon-check.svg";
 import { useDispatch } from "react-redux";
-import { addTodo } from "../redux/todoSlice";
+import { addActiveTodos, addTodo } from "../redux/todoSlice";
 
 export default function InputBox() {
   const [text, setText] = useState("");
@@ -23,6 +23,7 @@ export default function InputBox() {
         onClick={(e) => {
           e.preventDefault();
           dispatch(addTodo(text));
+          dispatch(addActiveTodos());
           setText("");
         }}
         className="rounded-full bg-green-500 p-3"

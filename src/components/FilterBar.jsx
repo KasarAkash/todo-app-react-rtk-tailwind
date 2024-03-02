@@ -1,5 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { selectActive, selectAll, selectComplete } from "../redux/filterSlice";
+import { addActiveTodos, addCompletedTodos } from "../redux/todoSlice";
 
 export default function FilterBar({ show }) {
   const filerState = useSelector((state) => state.filter);
@@ -19,6 +20,7 @@ export default function FilterBar({ show }) {
         <button
           className={filerState.active ? "text-BrightBlue" : ""}
           onClick={() => {
+            dispatch(addActiveTodos());
             dispatch(selectActive());
           }}
         >
@@ -27,6 +29,7 @@ export default function FilterBar({ show }) {
         <button
           className={filerState.completed ? "text-BrightBlue" : ""}
           onClick={() => {
+            dispatch(addCompletedTodos());
             dispatch(selectComplete());
           }}
         >
