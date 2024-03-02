@@ -1,6 +1,7 @@
 import { useSelector } from "react-redux";
 import TodoTile from "./TodoTile";
 import { useEffect, useState } from "react";
+import ExtraFeatureBar from "./ExtraFeatureBar";
 
 export default function DisplayTodo() {
   const filerState = useSelector((state) => state.filter);
@@ -22,12 +23,13 @@ export default function DisplayTodo() {
   }, [filerState, allTodos, activeTodos, completedTodos]);
 
   return (
-    <div className="overflow-hidden mt-8 shadow-2xl rounded bg-VeryLightGray dark:bg-VeryDarkDesaturatedBlue dark:text-LightGrayishBlue">
+    <div className="overflow-hidden mt-5 shadow-2xl rounded bg-VeryLightGray dark:bg-VeryDarkDesaturatedBlue dark:text-LightGrayishBlue">
       <div className="overflow-y-scroll no-scrollbar overflow-x-hidden sm:max-h-[60vh]  max-h-[60vh]">
         {todos.map((todo) => (
-          <TodoTile key={todo.id} {...todo} />
+          <TodoTile key={todo?.id} {...todo} />
         ))}
       </div>
+      <ExtraFeatureBar />
     </div>
   );
 }

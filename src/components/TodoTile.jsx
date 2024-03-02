@@ -14,7 +14,7 @@ import {
 export default function TodoTile({ id, isCompleted, text }) {
   const dispatch = useDispatch();
   return (
-    <div className="w-full first:border-none flex items-center justify-between last:border-none  border-y border-LightGrayishBlue1 px-4 py-5">
+    <div className="w-full first:border-none flex items-center justify-between last:border-none  border-y border-LightGrayishBlue1 p-4 ">
       <div className="flex items-center">
         <button>
           {isCompleted ? (

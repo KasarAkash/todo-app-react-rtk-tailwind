@@ -79,10 +79,16 @@ const todoSlice = createSlice({
         (todo) => todo.id !== action.payload
       );
     },
+
+    clearCompleted: (state) => {
+      state.completedTodo = [];
+      state.todos = state.todos.filter((todo) => todo.isCompleted === false);
+    },
   },
 });
 
 export const {
+  clearCompleted,
   addTodo,
   completeTodo,
   removeTodo,

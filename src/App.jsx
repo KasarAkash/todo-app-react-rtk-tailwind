@@ -11,7 +11,7 @@ export default function App() {
 
   return (
     <main className={`${theme ? "dark" : ""}`}>
-      <div className="min-h-screen  dark:bg-VeryDarkBlue">
+      <div className="min-h-screen dark:bg-VeryDarkBlue">
         <BgDesktop />
         <BgMobile />
         <div className="w-full flex flex-col items-center">
