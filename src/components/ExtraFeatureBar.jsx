@@ -11,23 +11,11 @@ export default function ExtraFeatureBar() {
   const [length, setLength] = useState(0);
   const dispatch = useDispatch();
   const filerState = useSelector((state) => state.filter);
-  const todosLength = useSelector((state) => state.todo.todosLength);
-  const activeTodoLength = useSelector((state) => state.todo.activeTodoLength);
-  const completedTodoLength = useSelector(
-    (state) => state.todo.completedTodoLength
-  );
+  const activeTodo = useSelector((state) => state.todo.activeTodo);
 
   useEffect(() => {
-    if (filerState.all) {
-      if (todosLength !== length) setLength(() => todosLength);
-    }
-    if (filerState.active) {
-      if (activeTodoLength !== length) setLength(() => activeTodoLength);
-    }
-    if (filerState.completed) {
-      if (completedTodoLength !== length) setLength(() => completedTodoLength);
-    }
-  }, [filerState, activeTodoLength, todosLength, completedTodoLength, length]);
+    setLength(activeTodo.length);
+  }, [filerState, activeTodo, length]);
 
   return (
     <div className={`flex justify-between items-center p-3`}>
@@ -37,7 +25,6 @@ export default function ExtraFeatureBar() {
         <button
           className={filerState.all ? "text-BrightBlue" : ""}
           onClick={() => {
-            setLength(todosLength);
             dispatch(selectAll());
           }}
         >
@@ -46,7 +33,6 @@ export default function ExtraFeatureBar() {
         <button
           className={filerState.active ? "text-BrightBlue" : ""}
           onClick={() => {
-            setLength(activeTodoLength);
             dispatch(addActiveTodos());
             dispatch(selectActive());
           }}
@@ -56,7 +42,6 @@ export default function ExtraFeatureBar() {
         <button
           className={filerState.completed ? "text-BrightBlue" : ""}
           onClick={() => {
-            setLength(completedTodoLength);
             dispatch(addCompletedTodos());
             dispatch(selectComplete());
           }}
