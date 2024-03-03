@@ -40,7 +40,7 @@ export default function FilterBar({ show, isDesktop }) {
             </button>
           </>
         ) : (
-          <p className="text-center text-red-500">No todos to show ...</p>
+          <p className="text-center text-red-500">No todos to show...</p>
         )}
       </div>
     </div>
